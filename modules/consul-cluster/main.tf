@@ -110,6 +110,7 @@ resource "azurerm_virtual_machine_scale_set" "consul" {
 
     ip_configuration {
       name = "ConsulIPConfiguration"
+      primary = true
       subnet_id = "${var.subnet_id}"
     }
   }
