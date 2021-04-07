@@ -39,6 +39,12 @@ variable "allowed_inbound_cidr_blocks" {
   type        = "list"
 }
 
+variable "custom_data" {
+  description = "The SH script to configure consul instances"
+}
+
+
+
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
