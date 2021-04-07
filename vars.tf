@@ -41,9 +41,13 @@ variable "allowed_inbound_cidr_blocks" {
 
 variable "custom_data" {
   description = "The SH script to configure consul instances"
+  
 }
 
-
+variable "subnet_id" {
+  description = "The subnet ID for network consul instances"
+  
+}
 
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
