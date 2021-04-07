@@ -31,7 +31,7 @@ resource "azurerm_virtual_network" "consul" {
 resource "azurerm_subnet" "consul" {
   name = "consulsubnet"
   resource_group_name = "${var.resource_group_name}"
-  virtual_network_name = "${azurerm_virtual_network.consul.name}"
+  virtual_network_name = "${var.ConsulVnet}"
   address_prefix = "${var.subnet_address}"
 }
 
