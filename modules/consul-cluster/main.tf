@@ -22,7 +22,7 @@ resource "azurerm_lb" "consul_access" {
 
   frontend_ip_configuration {
     name = "PublicIPAddress"
-    public_ip_address_id = "${azurerm_public_ip.consul_access.id}"
+    public_ip_address_id = azurerm_public_ip.consul_access[count.index].id
   }
 }
 
