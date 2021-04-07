@@ -28,11 +28,11 @@ terraform {
   #resource_group_name = "${var.resource_group_name}"
 #}
 
-resource "azurerm_subnet" "consul" {
-  name = "consulsubnet"
-  resource_group_name = "${var.resource_group_name}"
-  virtual_network_name = "${var.ConsulVnet}"
-  address_prefix = "${var.subnet_address}"
+#resource "azurerm_subnet" "consul" {
+ # name = "consulsubnet"
+ # resource_group_name = "${var.resource_group_name}"
+ # virtual_network_name = "${var.ConsulVnet}"
+ # address_prefix = "${var.subnet_address}"
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -61,7 +61,7 @@ module "consul_servers" {
   custom_data = "${data.template_file.user_data_server.rendered}"
   instance_size = "${var.instance_size}"
   image_id = "${var.image_uri}"
-  subnet_id = "${azurerm_subnet.consul.id}"
+  subnet_id = "${var.subnet_id}"
 
   # When set to true, a load balancer will be created to allow SSH to the instances as described in the 'Connect to VMs by using NAT rules'
   # section of https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
@@ -118,7 +118,7 @@ module "consul_clients" {
   custom_data = "${data.template_file.user_data_client.rendered}"
   instance_size = "${var.instance_size}"
   image_id = "${var.image_uri}"
-  subnet_id = "${azurerm_subnet.consul.id}"
+  subnet_id = "${var.subnet_id}"
 
   # When set to true, a load balancer will be created to allow SSH to the instances as described in the 'Connect to VMs by using NAT rules'
   # section of https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
