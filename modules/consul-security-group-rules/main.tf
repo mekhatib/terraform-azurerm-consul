@@ -14,8 +14,7 @@ resource "azurerm_network_security_rule" "allow_server_rpc_inbound" {
   priority = "${200 + count.index}"
   protocol = "Tcp"
   resource_group_name = "${var.resource_group_name}"
-  #source_address_prefix = "${element(var.allowed_inbound_cidr_blocks, count.index)}"
-  source_address_prefix = "${var.allowed_inbound_cidr_blocks}"
+  source_address_prefix = "${element(var.allowed_inbound_cidr_blocks, count.index)}"
   source_port_range = "1024-65535"
 }
 
