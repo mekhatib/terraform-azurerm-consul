@@ -49,6 +49,11 @@ variable "subnet_id" {
   
 }
 
+variable "ConsulVnet" {
+  description = "The subnet ID for network consul instances"
+  
+}
+
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # These parameters have reasonable defaults.
