@@ -117,7 +117,7 @@ resource "azurerm_network_security_rule" "allow_http_api_inbound" {
   priority = "${500 + count.index}"
   protocol = "Tcp"
   resource_group_name = "${var.resource_group_name}"
-  source_address_prefix = "${element(var.allowed_inbound_cidr_blocks, count.index)}"
+  #source_address_prefix = "${element(var.allowed_inbound_cidr_blocks, count.index)}"
   source_address_prefix = "*"
   source_port_range = "1024-65535"
 }
@@ -151,7 +151,7 @@ resource "azurerm_network_security_rule" "allow_dns_udp_inbound" {
   priority = "${600 + count.index}"
   protocol = "Udp"
   resource_group_name = "${var.resource_group_name}"
-  source_address_prefix = "${element(var.allowed_inbound_cidr_blocks, count.index)}"
+  #source_address_prefix = "${element(var.allowed_inbound_cidr_blocks, count.index)}"
   source_address_prefix = "*"
   source_port_range = "1024-65535"
 }
